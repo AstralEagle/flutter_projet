@@ -9,6 +9,7 @@ class MyUser {
   String? avatar;
   DateTime? birthday;
   late Genre genre;
+  late List<dynamic> liked;
 
 
   MyUser(){
@@ -17,6 +18,7 @@ class MyUser {
     prenom = "";
     email = "";
     genre = Genre.autres;
+    liked = [];
   }
 
 
@@ -27,20 +29,22 @@ class MyUser {
     prenom = map["PRENOM"];
     email = map["EMAIL"];
     avatar = map["AVATAR"]??defaultImage;
+    liked = map["LIKED"]?? [];
     Timestamp? timestamp = map["BIRTHDAY"];
     if(timestamp == null){
       birthday = DateTime.now();
     }
     else
-      {
-        birthday = timestamp.toDate();
-      }
+    {
+      birthday = timestamp.toDate();
+    }
   }
 
   //méthode
   String get fullName {
     return prenom + " " + nom;
   }
+
 
 
 }

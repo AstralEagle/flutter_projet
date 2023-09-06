@@ -19,6 +19,7 @@ class FirebaseHelper {
       "NOM":nom,
       "PRENOM":prenom,
       "EMAIL": email,
+      "LIKED": []
     };
     addUser(uid, data);
     return getUser(uid);
